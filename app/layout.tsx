@@ -9,23 +9,31 @@ import NavBar from "@/components/NavBar"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "RebrandAyiti - Valorisons les vraies images d'Haïti",
+  title: "RebrandAyiti — Group Mackandal",
   description:
-    "Plateforme collaborative pour partager des photos authentiques d'Haïti et combattre les stéréotypes négatifs. Rejoignez le mouvement pour changer la perception mondiale de notre beau pays.",
-  keywords: ["Haïti", "culture", "photographie", "open-source", "communauté", "patrimoine", "tourisme"],
-  authors: [{ name: "RebrandAyiti Team" }],
+    "Plateforme kominotè pou chanje reprezantasyon vizyèl Ayiti sou Entènèt. Nou itilize IA, SEO ak travay kolektif pou ranplase imaj negatif ak bèl imaj ki montre richès peyi a. Rejoignez le mouvement !",
+  keywords: [
+    "Haïti", "Haiti", "RebrandAyiti", "Group Mackandal",
+    "culture haïtienne", "beauté Haïti", "photographie Haïti",
+    "Citadelle Laferrière", "Labadee", "art haïtien",
+    "open-source", "communauté", "patrimoine", "SEO Haiti",
+    "imaj Ayiti", "reprezantasyon pozitif",
+  ],
+  authors: [{ name: "Group Mackandal" }],
   openGraph: {
-    title: "RebrandAyiti - Valorisons les vraies images d'Haïti",
+    title: "RebrandAyiti — Group Mackandal",
     description:
-      "Plateforme collaborative pour partager des photos authentiques d'Haïti et combattre les stéréotypes négatifs.",
+      "Chanje reprezantasyon vizyèl Ayiti sou Google. Bank imaj pozitif, IA crawler, kominote kontribitè.",
     type: "website",
-    locale: "fr_FR",
+    locale: "fr_HT",
+    siteName: "RebrandAyiti",
   },
   twitter: {
     card: "summary_large_image",
-    title: "RebrandAyiti - Valorisons les vraies images d'Haïti",
+    title: "RebrandAyiti — Group Mackandal",
     description:
-      "Plateforme collaborative pour partager des photos authentiques d'Haïti et combattre les stéréotypes négatifs.",
+      "Chanje reprezantasyon vizyèl Ayiti sou Google. Bank imaj pozitif, IA crawler, kominote kontribitè.",
+    site: "@rebrandayiti",
   },
 }
 

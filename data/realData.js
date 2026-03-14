@@ -2,14 +2,14 @@ import { Camera, Users, Globe, Heart, Zap, Shield } from "lucide-react"
 
 export const realData = {
   hero: {
-    title: "RebrandAyiti",
-    subtitle: "Valorisons les vraies images d'Haïti",
+    title: "Chanje Imaj Ayiti",
+    subtitle: "Nou pap kite Google defini nou",
     description:
-      "Plateforme collaborative où les Haïtiens et amis d'Haïti partagent des photos authentiques pour changer la perception mondiale de notre beau pays. Rejoignez le mouvement !",
-    ctaText: "Commencer à partager",
-    secondaryCTA: "Voir la galerie",
+      "Plateforme kominotè pou ranplase imaj negatif Ayiti ak bèl foto ki montre richès kiltirèl, kapasite ak bèlte peyi a. Chak foto ou pataje se yon aksyon pou chanje naratif dijital la.",
+    ctaText: "Pataje yon foto",
+    secondaryCTA: "Gade galri a",
     imageUrl: "/images/haiti-hero.jpg",
-    imageAlt: "Magnifique paysage d'Haïti - Citadelle Laferrière",
+    imageAlt: "Bèl peyizaj Ayiti — Citadelle Laferrière",
   },
 
   features: {
@@ -56,10 +56,10 @@ export const realData = {
   },
 
   cta: {
-    title: "Prêt à montrer le vrai visage d'Haïti ?",
-    subtitle: "Rejoignez des milliers de contributeurs qui transforment la perception d'Haïti une photo à la fois.",
-    primaryCTA: "Créer mon compte gratuit",
-    secondaryCTA: "Explorer la galerie",
+    title: "Ou pare pou montre vrè Ayiti ?",
+    subtitle: "Rejwenn milye kontribitè ki ap chanje pèsepsyon Ayiti yon foto alafwa. Gratis, ouvè, pou tout moun.",
+    primaryCTA: "Kreye kont gratis",
+    secondaryCTA: "Eksplore galri a",
   },
 
   footer: {
@@ -71,11 +71,11 @@ export const realData = {
       { label: "Contact", href: "/contact" },
     ],
     socialLinks: [
-      { platform: "GitHub", href: "https://github.com/rebrandayiti/platform" },
+      { platform: "GitHub", href: "https://github.com/FalandyJEAN/Group-Mackandal-RebrandAyiti" },
       { platform: "Twitter", href: "https://twitter.com/rebrandayiti" },
       { platform: "LinkedIn", href: "https://linkedin.com/company/rebrandayiti" },
-      { platform: "Email", href: "mailto:hello@rebrandayiti.org" },
+      { platform: "Email", href: "mailto:rebrandayiti@groupmackandal.org" },
     ],
-    copyright: "© {year} RebrandAyiti. Projet open-source sous licence MIT. Fait avec ❤️ pour Haïti.",
+    copyright: "© {year} Group Mackandal — RebrandAyiti. MIT License. Fèt ak ❤️ pou Ayiti.",
   },
 }

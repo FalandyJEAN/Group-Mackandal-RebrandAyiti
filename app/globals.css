@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
@@ -92,8 +92,24 @@ body {
 }
 
 @layer components {
+  /* Gradient drapeau haïtien */
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #003F87, #D21034);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-haiti {
+    @apply bg-gradient-to-r from-[#003F87] to-[#D21034] text-white font-semibold
+           hover:from-[#1a5fa8] hover:to-[#e63350] transition-all shadow-md
+           hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .badge-mackandal {
+    @apply text-xs font-bold tracking-widest uppercase
+           bg-gradient-to-r from-[#003F87] to-[#D21034]
+           bg-clip-text text-transparent;
   }
 }
 

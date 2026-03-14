@@ -65,7 +65,7 @@ export default function NavBar() {
             onClick={() => user ? setShowUploadModal(true) : setShowAuthModal(true)}
             className="flex flex-col items-center gap-1 p-2 text-white"
           >
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-red-600 rounded-full flex items-center justify-center -mt-5 shadow-lg">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center -mt-5 shadow-lg" style={{ background: 'linear-gradient(135deg, #003F87, #D21034)' }}>
               <Plus className="w-5 h-5" />
             </div>
           </button>
@@ -85,10 +85,14 @@ export default function NavBar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-red-600 rounded-lg flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center overflow-hidden shadow-md"
+                   style={{ background: 'linear-gradient(135deg, #003F87 50%, #D21034 50%)' }}>
                 <Camera className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 dark:text-white">RebrandAyiti</span>
+              <div className="flex flex-col leading-tight">
+                <span className="text-lg font-extrabold tracking-tight text-gray-900 dark:text-white">RebrandAyiti</span>
+                <span className="badge-mackandal text-[9px] leading-none">Group Mackandal</span>
+              </div>
             </Link>
 
             <div className="flex items-center gap-6">
@@ -115,7 +119,7 @@ export default function NavBar() {
               {/* Upload button */}
               <button
                 onClick={() => user ? setShowUploadModal(true) : setShowAuthModal(true)}
-                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-red-700 transition-colors text-sm"
+                className="btn-haiti flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
               >
                 <Plus className="w-4 h-4" />
                 Partager
@@ -125,7 +129,7 @@ export default function NavBar() {
               {user ? (
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                    <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-red-600 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #003F87, #D21034)' }}>
                       <User className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-sm font-medium">{user.name.split(" ")[0]}</span>

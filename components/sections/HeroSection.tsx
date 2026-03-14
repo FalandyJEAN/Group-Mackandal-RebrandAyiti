@@ -24,7 +24,7 @@ export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
       {/* Image de fond */}
       <div className="absolute inset-0">
         <Image src="/images/haiti-hero.jpg" alt="Magnifique paysage d'Haïti" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/70 to-red-900/80"></div>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,63,135,0.85) 0%, rgba(0,63,135,0.65) 40%, rgba(210,16,52,0.80) 100%)' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -33,7 +33,7 @@ export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              <span className="text-white text-sm font-medium">🔴 En direct - 1,247 photos partagées aujourd&apos;hui</span>
+              <span className="text-white text-sm font-medium">🇭🇹 Mouvman ouvert — Group Mackandal</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{data.title}</h1>
@@ -43,7 +43,8 @@ export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={onGetStarted}
-                className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="inline-flex items-center gap-2 bg-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                style={{ color: '#003F87' }}
               >
                 {data.ctaText}
                 <ArrowRight className="w-5 h-5" />

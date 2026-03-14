@@ -13,6 +13,14 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+  			// Couleurs du drapeau haïtien
+  			haiti: {
+  				blue: '#003F87',
+  				'blue-light': '#1a5fa8',
+  				red: '#D21034',
+  				'red-light': '#e63350',
+  				black: '#1a1a1a',
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
