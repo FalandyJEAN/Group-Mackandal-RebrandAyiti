@@ -24,14 +24,14 @@ export default function CTASection({ data }: CTASectionProps) {
         <div className="flex-1" style={{ backgroundColor: '#D21034' }} />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 lg:px-8 py-28 text-center">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8 py-14 md:py-28 text-center">
 
         {/* Headline éditorial */}
-        <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-none tracking-tight text-gray-900 dark:text-white mb-8">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight text-gray-900 dark:text-white mb-8">
           {data.title}
         </h2>
 
-        <p className="text-xl text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-12 leading-relaxed">
+        <p className="text-base md:text-xl text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-12 leading-relaxed">
           {data.subtitle}
         </p>
 
@@ -39,7 +39,7 @@ export default function CTASection({ data }: CTASectionProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={openAuthModal}
-            className="btn-haiti inline-flex items-center gap-2 px-10 py-4 text-lg font-bold"
+            className="btn-haiti inline-flex items-center gap-2 px-6 py-3 md:px-10 md:py-4 text-base md:text-lg font-bold"
           >
             {data.primaryCTA}
             <ArrowRight className="w-5 h-5" />
@@ -47,7 +47,7 @@ export default function CTASection({ data }: CTASectionProps) {
 
           <Link
             href="/gallery"
-            className="inline-flex items-center gap-2 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white px-10 py-4 text-lg font-bold hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors"
+            className="inline-flex items-center gap-2 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white px-6 py-3 md:px-10 md:py-4 text-base md:text-lg font-bold hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors"
           >
             {data.secondaryCTA}
           </Link>

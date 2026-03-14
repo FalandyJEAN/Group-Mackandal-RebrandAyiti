@@ -14,10 +14,10 @@ export default function Footer({ data }: FooterProps) {
 
       {/* Manifès */}
       <div className="border-b border-gray-800 dark:border-gray-900">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-end">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 md:py-16 grid lg:grid-cols-2 gap-12 items-end">
           <div>
             <div className="flex flex-col mb-6">
-              <span className="text-3xl font-black tracking-tight">RebrandAyiti</span>
+              <span className="text-2xl md:text-3xl font-black tracking-tight">RebrandAyiti</span>
               <span className="text-xs font-bold tracking-[0.25em] uppercase mt-1" style={{ color: '#D21034' }}>
                 Group Mackandal
               </span>
@@ -29,7 +29,7 @@ export default function Footer({ data }: FooterProps) {
           </div>
 
           <div className="lg:text-right">
-            <p className="text-2xl font-black text-gray-200 leading-snug">
+            <p className="text-xl md:text-2xl font-black text-gray-200 leading-snug">
               &ldquo;Kòd sa se pou Ayiti,<br />
               <span style={{ color: '#003F87' }}>pa</span>{" "}
               <span style={{ color: '#D21034' }}>Ayisyen.</span>&rdquo;

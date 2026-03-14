@@ -34,11 +34,11 @@ export default function FeaturesSection({ data }: FeaturesSectionProps) {
   ]
 
   return (
-    <section className="py-24 bg-white dark:bg-gray-950">
+    <section className="py-14 md:py-24 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Titre éditorial */}
-        <div className="mb-20">
+        <div className="mb-10 md:mb-20">
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-gray-400 dark:text-gray-500 mb-3">
             Kijan sa travay
           </p>
@@ -53,10 +53,10 @@ export default function FeaturesSection({ data }: FeaturesSectionProps) {
           {steps.map((step, i) => (
             <div
               key={i}
-              className="bg-white dark:bg-gray-950 p-10 group hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+              className="bg-white dark:bg-gray-950 p-6 md:p-10 group hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
             >
               <div
-                className="text-7xl font-black leading-none mb-8 select-none"
+                className="text-6xl md:text-7xl font-black leading-none mb-8 select-none"
                 style={{ color: step.accent, opacity: 0.15 }}
               >
                 {step.num}
@@ -77,12 +77,12 @@ export default function FeaturesSection({ data }: FeaturesSectionProps) {
         </div>
 
         {/* Manifeste ligne */}
-        <div className="mt-16 flex items-center gap-6">
-          <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
+        <div className="mt-8 md:mt-16 flex items-center gap-6">
+          <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800 hidden sm:block" />
           <p className="text-sm text-gray-400 dark:text-gray-500 italic text-center max-w-lg">
             &ldquo;Nou pap efase reyalite — men n ap mete limyè sou bèlte nou yo.&rdquo;
           </p>
-          <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
+          <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800 hidden sm:block" />
         </div>
 
       </div>

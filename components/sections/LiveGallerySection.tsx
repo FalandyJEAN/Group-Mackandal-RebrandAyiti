@@ -184,16 +184,16 @@ export default function LiveGallerySection() {
   const NAV_CATS = [{ id: "all", label: "Tout" }, ...categories.slice(0, 8).map(c => ({ id: c.id, label: c.label }))]
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-950">
+    <section className="py-12 md:py-20 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* En-tête éditorial */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div>
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-gray-400 dark:text-gray-500 mb-3">
               RebrandStock
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 dark:text-white leading-none">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-white leading-none">
               Vrè Ayiti.
               <br />
               <span style={{ color: '#D21034' }}>Pa filtre.</span>
@@ -232,7 +232,7 @@ export default function LiveGallerySection() {
               className="group bg-white dark:bg-gray-950 overflow-hidden"
             >
               <Link href={!isNaN(Number(photo.id)) ? `/photos/${photo.id}` : "#"}>
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-48 md:h-56 overflow-hidden">
                   <Image
                     src={photo.url || "/images/haiti-hero.jpg"}
                     alt={photo.title}
@@ -288,7 +288,7 @@ export default function LiveGallerySection() {
         </div>
 
         {/* Bottom CTA — style éditorial */}
-        <div className="border border-gray-200 dark:border-gray-800 p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="border border-gray-200 dark:border-gray-800 p-5 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 dark:text-gray-600 mb-1">
               Tu gen yon foto?

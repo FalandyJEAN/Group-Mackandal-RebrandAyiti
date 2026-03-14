@@ -36,16 +36,16 @@ const CONTRIBUTORS = [
 
 export default function CommunitySection() {
   return (
-    <section className="py-24 bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden transition-colors">
+    <section className="py-14 md:py-24 bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden transition-colors">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Titre */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-start mb-10 md:mb-20">
           <div>
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-gray-400 dark:text-gray-500 mb-4">
               Mouvman an vivan
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight">
               Ayisyen{" "}
               <span style={{ color: '#003F87' }}>ak zanmi</span>{" "}
               Ayiti
@@ -62,10 +62,10 @@ export default function CommunitySection() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-300 dark:bg-gray-800 border border-gray-300 dark:border-gray-800 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-300 dark:bg-gray-800 border border-gray-300 dark:border-gray-800 mb-10 md:mb-20">
           {IMPACTS.map((stat, i) => (
-            <div key={i} className="bg-gray-100 dark:bg-gray-950 px-8 py-10">
-              <div className="text-4xl font-black text-gray-900 dark:text-white mb-2">{stat.value}</div>
+            <div key={i} className="bg-gray-100 dark:bg-gray-950 px-4 py-6 md:px-8 md:py-10">
+              <div className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-2">{stat.value}</div>
               <div className="text-gray-900 dark:text-white font-semibold text-sm mb-1">{stat.label}</div>
               <div className="text-gray-500 text-xs">{stat.sub}</div>
             </div>
@@ -127,7 +127,7 @@ export default function CommunitySection() {
 
             {/* Manifès */}
             <div
-              className="p-8 border-l-4"
+              className="p-5 md:p-8 border-l-4"
               style={{ borderColor: '#D21034', backgroundColor: 'rgba(210,16,52,0.06)' }}
             >
               <p className="text-lg font-semibold text-gray-900 dark:text-white leading-relaxed mb-4">

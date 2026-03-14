@@ -47,7 +47,7 @@ export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
       </div>
 
       {/* Contenu */}
-      <div className="relative z-10 flex flex-col justify-center flex-1 max-w-7xl mx-auto px-6 lg:px-8 py-24">
+      <div className="relative z-10 flex flex-col justify-center flex-1 max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-24">
         <div className="max-w-3xl">
 
           {/* Label mouvement */}
@@ -56,19 +56,19 @@ export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
           </p>
 
           {/* Titre massif */}
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white leading-none tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-8xl font-black text-white leading-none tracking-tight mb-6">
             {data.title}
           </h1>
 
           {/* Sous-titre */}
           <p
-            className="text-2xl sm:text-3xl font-bold mb-6 leading-tight"
+            className="text-xl sm:text-2xl font-bold mb-6 leading-tight"
             style={{ color: '#ffcdd8' }}
           >
             {data.subtitle}
           </p>
 
-          <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed">
+          <p className="text-base md:text-lg text-white/70 mb-10 max-w-xl leading-relaxed">
             {data.description}
           </p>
 
@@ -76,7 +76,7 @@ export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={onGetStarted}
-              className="inline-flex items-center gap-2 bg-white font-bold text-lg px-8 py-4 hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center gap-2 bg-white font-bold text-base md:text-lg px-8 py-4 hover:bg-gray-100 transition-colors"
               style={{ color: '#003F87' }}
             >
               {data.ctaText}
@@ -84,7 +84,7 @@ export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
             </button>
             <a
               href="/gallery"
-              className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-bold text-lg px-8 py-4 hover:border-white hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-bold text-base md:text-lg px-8 py-4 hover:border-white hover:bg-white/10 transition-colors"
             >
               {data.secondaryCTA}
             </a>
@@ -101,9 +101,9 @@ export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
               { n: "2 341", label: "Imaj negatif signalé" },
               { n: "89", label: "Peyi touche" },
             ].map((s, i) => (
-              <div key={i} className="py-5 px-6 text-center">
-                <div className="text-2xl font-black text-white">{s.n}</div>
-                <div className="text-xs text-white/40 mt-0.5 uppercase tracking-wider">{s.label}</div>
+              <div key={i} className="py-5 px-3 md:px-6 text-center">
+                <div className="text-xl md:text-2xl font-black text-white">{s.n}</div>
+                <div className="text-[10px] md:text-xs text-white/40 mt-0.5 uppercase tracking-wider">{s.label}</div>
               </div>
             ))}
           </div>
