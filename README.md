@@ -26,13 +26,14 @@
 
 ## ⚙️ Teknoloji
 
-- **Backend**: FastAPI | Express.js
-- **Frontend**: Next.js | Nuxt.js
+- **Frontend**: Next.js 15 (App Router, TypeScript)
+- **UI**: Tailwind CSS + shadcn/ui
 - **AI/ML**: HuggingFace CLIP + custom classifiers
-- **Stock imaj**: Cloudflare R2, Firebase, CDN
-- **Automation**: Puppeteer, Proxy manager, CAPTCHA handler
-- **DB**: PostgreSQL / SQLite
-- **Auth**: Clerk.dev / Auth.js
+- **Automation**: Puppeteer (signalman etik)
+- **DB**: Neon PostgreSQL (serverless)
+- **Storage**: Vercel Blob (upload imaj)
+- **Auth**: JWT maison (bcryptjs + jose)
+- **Hosting**: Vercel
 
 ---
 
@@ -44,7 +45,7 @@ MIT License – Ou ka itilize, modifye, distribye, e menm vann aplikasyon ki iti
 ```
 MIT License
 
-Copyright (c) 2025 Group Mackandal
+Copyright (c) 2026 Group Mackandal
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -109,12 +110,15 @@ Nou akeyi kontribitè nouvo ak eksperimante. Ou ka ede pa:
 
 ## 🌱 Roadmap (v1.0)
 
-- [ ] MVP AI crawler & classifier
-- [ ] Dashboard kontribitè
-- [ ] Sistèm signalman etik
-- [ ] Stock imaj pozitif (upload, download, lisans)
-- [ ] Plugin distribisyon imaj sou CMS (WordPress, Wix...)
-- [ ] Kominote & dokimantasyon an kreyòl
+- [x] RebrandStock — galerie imaj ak upload (Vercel Blob + Neon)
+- [x] Sistèm otantifikasyon (JWT + bcrypt)
+- [x] Paj foto SEO-optimizé (`/photos/[id]`) ak JSON-LD
+- [x] Sitemap dinamik + robots.txt
+- [x] Paj signalman (UI) + crawler API
+- [ ] Signalman otomatik pou Google/plateòm yo
+- [ ] Dashboard kontribitè (vote, moderation)
+- [ ] API piblik + Plugin CMS (WordPress, Wix...)
+- [ ] AI crawler konplè (HuggingFace CLIP)
 
 ---
 
