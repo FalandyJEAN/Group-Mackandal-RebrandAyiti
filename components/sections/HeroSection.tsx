@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, Play } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 
 interface HeroData {
@@ -20,94 +20,96 @@ interface HeroSectionProps {
 
 export default function HeroSection({ data, onGetStarted }: HeroSectionProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Image de fond */}
-      <div className="absolute inset-0">
-        <Image src="/images/haiti-hero.jpg" alt="Magnifique paysage d'Haïti" fill className="object-cover" priority />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,63,135,0.85) 0%, rgba(0,63,135,0.65) 40%, rgba(210,16,52,0.80) 100%)' }}></div>
+    <section className="relative min-h-screen flex flex-col">
+
+      {/* Barre drapeau en haut */}
+      <div className="flex h-1.5 z-20 relative">
+        <div className="flex-1" style={{ backgroundColor: '#003F87' }} />
+        <div className="flex-1" style={{ backgroundColor: '#D21034' }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Contenu textuel */}
-          <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              <span className="text-white text-sm font-medium">🇭🇹 Mouvman ouvert — Group Mackandal</span>
-            </div>
+      {/* Image de fond plein écran */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/haiti-hero.jpg"
+          alt={data.imageAlt}
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Overlay diagonal — bleu gauche, rouge droit */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(105deg, rgba(0,63,135,0.92) 0%, rgba(0,63,135,0.75) 45%, rgba(0,0,0,0.55) 60%, rgba(210,16,52,0.70) 100%)',
+          }}
+        />
+      </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{data.title}</h1>
-            <p className="text-xl sm:text-2xl text-blue-100 mb-6 font-medium">{data.subtitle}</p>
-            <p className="text-lg text-blue-50 mb-8 max-w-2xl">{data.description}</p>
+      {/* Contenu */}
+      <div className="relative z-10 flex flex-col justify-center flex-1 max-w-7xl mx-auto px-6 lg:px-8 py-24">
+        <div className="max-w-3xl">
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={onGetStarted}
-                className="inline-flex items-center gap-2 bg-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
-                style={{ color: '#003F87' }}
-              >
-                {data.ctaText}
-                <ArrowRight className="w-5 h-5" />
-              </button>
+          {/* Label mouvement */}
+          <p className="text-xs font-bold tracking-[0.3em] uppercase text-white/60 mb-6">
+            Group Mackandal — Mouvman RebrandAyiti
+          </p>
 
-              <button className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors">
-                <Play className="w-5 h-5" />
-                {data.secondaryCTA}
-              </button>
-            </div>
+          {/* Titre massif */}
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white leading-none tracking-tight mb-6">
+            {data.title}
+          </h1>
 
-            {/* Stats en temps réel */}
-            <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">12,847</div>
-                <div className="text-blue-200 text-sm">Photos partagées</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">3,421</div>
-                <div className="text-blue-200 text-sm">Contributeurs</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">89</div>
-                <div className="text-blue-200 text-sm">Pays touchés</div>
-              </div>
-            </div>
-          </div>
+          {/* Sous-titre */}
+          <p
+            className="text-2xl sm:text-3xl font-bold mb-6 leading-tight"
+            style={{ color: '#ffcdd8' }}
+          >
+            {data.subtitle}
+          </p>
 
-          {/* Galerie preview */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="relative h-48 rounded-xl overflow-hidden shadow-lg">
-                  <Image src="/images/labadee-beach.jpg" alt="Plage de Labadee" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Plage de Labadee</div>
-                </div>
-                <div className="relative h-32 rounded-xl overflow-hidden shadow-lg">
-                  <Image src="/images/iron-market.jpg" alt="Marché en Fer" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-2 left-2 text-white text-xs">Marché coloré</div>
-                </div>
-              </div>
-              <div className="space-y-4 mt-8">
-                <div className="relative h-32 rounded-xl overflow-hidden shadow-lg">
-                  <Image src="/images/citadelle-sunrise.jpg" alt="Citadelle Laferrière" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-2 left-2 text-white text-xs">Citadelle</div>
-                </div>
-                <div className="relative h-48 rounded-xl overflow-hidden shadow-lg">
-                  <Image src="/images/haitian-art.jpg" alt="Art haïtien" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 text-white text-sm font-medium">Art local</div>
-                </div>
-              </div>
-            </div>
+          <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed">
+            {data.description}
+          </p>
 
-            <div className="absolute -top-4 -right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium animate-bounce">
-              Nouvelle photo ! 📸
-            </div>
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={onGetStarted}
+              className="inline-flex items-center gap-2 bg-white font-bold text-lg px-8 py-4 hover:bg-gray-100 transition-colors"
+              style={{ color: '#003F87' }}
+            >
+              {data.ctaText}
+              <ArrowRight className="w-5 h-5" />
+            </button>
+            <a
+              href="/gallery"
+              className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-bold text-lg px-8 py-4 hover:border-white hover:bg-white/10 transition-colors"
+            >
+              {data.secondaryCTA}
+            </a>
           </div>
         </div>
       </div>
+
+      {/* Bande basse — stats typographiques sur fond noir */}
+      <div className="relative z-10 bg-black/80 backdrop-blur-sm border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-3 divide-x divide-white/10">
+            {[
+              { n: "12 847", label: "Foto patajé" },
+              { n: "2 341", label: "Imaj negatif signalé" },
+              { n: "89", label: "Peyi touche" },
+            ].map((s, i) => (
+              <div key={i} className="py-5 px-6 text-center">
+                <div className="text-2xl font-black text-white">{s.n}</div>
+                <div className="text-xs text-white/40 mt-0.5 uppercase tracking-wider">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
     </section>
   )
 }
