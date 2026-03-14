@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import Link from "next/link"
 
 interface FooterProps {
   data: {
@@ -9,70 +9,77 @@ interface FooterProps {
 }
 
 export default function Footer({ data }: FooterProps) {
-  const getSocialIcon = (platform: string) => {
-    switch (platform.toLowerCase()) {
-      case "github":
-        return <Github className="w-5 h-5" />
-      case "twitter":
-        return <Twitter className="w-5 h-5" />
-      case "linkedin":
-        return <Linkedin className="w-5 h-5" />
-      case "email":
-        return <Mail className="w-5 h-5" />
-      default:
-        return null
-    }
-  }
-
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Logo et description */}
+    <footer className="bg-gray-950 text-white">
+      {/* Bloc manifeste top */}
+      <div className="border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-end">
           <div>
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
-              RebrandAyiti
-            </h3>
-            <p className="text-gray-400 leading-relaxed">
-              Valorisons ensemble les images positives d'Haïti et construisons un avenir meilleur pour notre pays.
+            {/* Logo texte */}
+            <div className="flex flex-col mb-6">
+              <span className="text-3xl font-black tracking-tight">RebrandAyiti</span>
+              <span className="text-xs font-bold tracking-[0.25em] uppercase mt-1" style={{ color: '#D21034' }}>
+                Group Mackandal
+              </span>
+            </div>
+            <p className="text-gray-400 leading-relaxed max-w-sm">
+              Pwojè open-source pou chanje reprezantasyon vizyèl Ayiti sou Entènèt.
+              Gratis. Ouvè. Pou tout moun.
             </p>
           </div>
 
-          {/* Liens rapides */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Liens rapides</h4>
-            <ul className="space-y-2">
-              {data.quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Réseaux sociaux */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Suivez-nous</h4>
-            <div className="flex gap-4">
-              {data.socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
-                  aria-label={`Suivre sur ${social.platform}`}
-                >
-                  {getSocialIcon(social.platform)}
-                </a>
-              ))}
-            </div>
+          <div className="lg:text-right">
+            <p className="text-2xl font-black text-gray-200 leading-snug">
+              &ldquo;Kòd sa se pou Ayiti,<br />
+              <span style={{ color: '#003F87' }}>pa</span>{" "}
+              <span style={{ color: '#D21034' }}>Ayisyen.</span>&rdquo;
+            </p>
           </div>
         </div>
+      </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-400">{data.copyright.replace("{year}", new Date().getFullYear().toString())}</p>
+      {/* Nav links + social */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+
+        {/* Liens */}
+        <nav className="flex flex-wrap gap-6">
+          {data.quickLinks.map((link, i) => (
+            <Link
+              key={i}
+              href={link.href}
+              className="text-gray-400 hover:text-white text-sm transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Social — texte seulement, pas d'icônes génériques */}
+        <div className="flex gap-4">
+          {data.socialLinks.map((s, i) => (
+            <a
+              key={i}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold tracking-widest uppercase text-gray-600 hover:text-white transition-colors border border-gray-800 hover:border-gray-500 px-3 py-1.5"
+            >
+              {s.platform}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="border-t border-gray-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-gray-600 text-xs">
+            {data.copyright.replace("{year}", new Date().getFullYear().toString())}
+          </p>
+          <div className="flex gap-1 h-3">
+            <div className="w-6 rounded-sm" style={{ backgroundColor: '#003F87' }} />
+            <div className="w-6 rounded-sm" style={{ backgroundColor: '#D21034' }} />
+          </div>
         </div>
       </div>
     </footer>
