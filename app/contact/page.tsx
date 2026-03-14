@@ -2,7 +2,6 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Mail, MapPin, Github, Twitter, CheckCircle } from "lucide-react"
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" })
@@ -10,151 +9,174 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Sauvegarde locale du message
     const messages = JSON.parse(localStorage.getItem("rebrand_messages") || "[]")
     messages.push({ ...form, sentAt: new Date().toISOString() })
     localStorage.setItem("rebrand_messages", JSON.stringify(messages))
     setSent(true)
   }
 
+  const inputClass =
+    "w-full px-4 py-3 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:outline-none focus:border-[#003F87] dark:focus:border-white transition-colors"
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-red-600 py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Contactez-nous</h1>
-          <p className="text-blue-100 text-xl">Une question ? Une suggestion ? Nous sommes à l&apos;écoute.</p>
-        </div>
+    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors">
+
+      {/* Bande drapeau */}
+      <div className="flex h-1">
+        <div className="flex-1" style={{ backgroundColor: "#003F87" }} />
+        <div className="flex-1" style={{ backgroundColor: "#D21034" }} />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Infos de contact */}
+      <div className="max-w-5xl mx-auto px-6 lg:px-8 py-14 md:py-24">
+
+        {/* En-tête */}
+        <div className="mb-12 md:mb-16">
+          <p className="text-xs font-bold tracking-[0.25em] uppercase text-gray-400 dark:text-gray-500 mb-4">
+            Group Mackandal
+          </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 dark:text-white leading-none">
+            Kontakte nou.
+            <br />
+            <span style={{ color: "#003F87" }}>Nou koute.</span>
+          </h1>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+
+          {/* Informasyon */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Retrouvez-nous</h2>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 dark:text-gray-500 mb-8">
+              Jwenn nou
+            </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900 dark:text-white">Email</div>
-                  <a href="mailto:hello@rebrandayiti.org" className="text-blue-600 dark:text-blue-400 hover:underline">
-                    hello@rebrandayiti.org
-                  </a>
-                </div>
+            <div className="space-y-0 border border-gray-200 dark:border-gray-800">
+              <div className="px-5 py-5 border-b border-gray-200 dark:border-gray-800">
+                <p className="text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-1">Email</p>
+                <a
+                  href="mailto:hello@rebrandayiti.org"
+                  className="font-semibold text-gray-900 dark:text-white hover:underline"
+                >
+                  hello@rebrandayiti.org
+                </a>
               </div>
+              <div className="px-5 py-5 border-b border-gray-200 dark:border-gray-800">
+                <p className="text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-1">Kote nou ye</p>
+                <p className="font-semibold text-gray-900 dark:text-white">Pòtoprens, Ayiti</p>
+              </div>
+              <div className="px-5 py-5 border-b border-gray-200 dark:border-gray-800">
+                <p className="text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-1">GitHub</p>
+                <span className="font-semibold text-gray-900 dark:text-white text-sm">
+                  github.com/FalandyJEAN/Group-Mackandal-RebrandAyiti
+                </span>
+              </div>
+              <div className="px-5 py-5">
+                <p className="text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-1">Twitter / X</p>
+                <span className="font-semibold text-gray-900 dark:text-white">@rebrandayiti</span>
+              </div>
+            </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900 dark:text-white">Basé à</div>
-                  <div className="text-gray-600 dark:text-gray-400">Port-au-Prince, Haïti</div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center shrink-0">
-                  <Github className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900 dark:text-white">GitHub (open source)</div>
-                  <span className="text-gray-600 dark:text-gray-400">github.com/rebrandayiti/platform</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center shrink-0">
-                  <Twitter className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900 dark:text-white">Twitter / X</div>
-                  <span className="text-gray-600 dark:text-gray-400">@rebrandayiti</span>
-                </div>
-              </div>
+            {/* Quote */}
+            <div
+              className="mt-8 p-5 border-l-4"
+              style={{ borderColor: "#D21034", backgroundColor: "rgba(210,16,52,0.06)" }}
+            >
+              <p className="text-base font-semibold text-gray-900 dark:text-white leading-relaxed">
+                &ldquo;Pwojè open-source pou chanje reprezantasyon vizyèl
+                Ayiti sou Entènèt. Gratis. Ouvè. Pou tout moun.&rdquo;
+              </p>
             </div>
           </div>
 
-          {/* Formulaire */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm">
+          {/* Fòmilè */}
+          <div>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 dark:text-gray-500 mb-8">
+              Voye yon mesaj
+            </p>
+
             {sent ? (
-              <div className="text-center py-8">
-                <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Message envoyé !</h3>
-                <p className="text-gray-600 dark:text-gray-400">Nous vous répondrons dans les 48 heures.</p>
+              <div className="border border-gray-200 dark:border-gray-800 p-8 text-center">
+                <div className="w-1.5 h-8 mx-auto mb-4" style={{ backgroundColor: "#003F87" }} />
+                <h3 className="text-xl font-black text-gray-900 dark:text-white mb-2">Mesaj voye!</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
+                  Nou pral reponn ou nan 48 èdtan.
+                </p>
                 <button
                   onClick={() => { setSent(false); setForm({ name: "", email: "", subject: "", message: "" }) }}
-                  className="mt-6 text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-sm font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white underline transition-colors"
                 >
-                  Envoyer un autre message
+                  Voye yon lòt mesaj
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Envoyer un message</h3>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nom</label>
+              <form onSubmit={handleSubmit} className="space-y-0 border border-gray-200 dark:border-gray-800">
+                <div className="border-b border-gray-200 dark:border-gray-800">
+                  <label className="block text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 px-4 pt-4 pb-1">
+                    Non
+                  </label>
                   <input
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="Votre nom"
+                    className={inputClass + " border-0 border-none focus:ring-0 px-4 pb-4"}
+                    placeholder="Non ou"
                     required
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                <div className="border-b border-gray-200 dark:border-gray-800">
+                  <label className="block text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 px-4 pt-4 pb-1">
+                    Email
+                  </label>
                   <input
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="votre@email.com"
+                    className={inputClass + " border-0 border-none focus:ring-0 px-4 pb-4"}
+                    placeholder="ou@email.com"
                     required
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Sujet</label>
+                <div className="border-b border-gray-200 dark:border-gray-800">
+                  <label className="block text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 px-4 pt-4 pb-1">
+                    Sijè
+                  </label>
                   <input
                     type="text"
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="De quoi s'agit-il ?"
+                    className={inputClass + " border-0 border-none focus:ring-0 px-4 pb-4"}
+                    placeholder="Sou kisa?"
                     required
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                <div className="border-b border-gray-200 dark:border-gray-800">
+                  <label className="block text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-600 px-4 pt-4 pb-1">
+                    Mesaj
+                  </label>
                   <textarea
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="Votre message..."
+                    className={inputClass + " border-0 border-none focus:ring-0 px-4 pb-4 resize-none"}
+                    placeholder="Mesaj ou..."
                     required
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-red-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-red-700 transition-colors"
-                >
-                  Envoyer
-                </button>
+                <div className="p-4">
+                  <button
+                    type="submit"
+                    className="btn-haiti w-full py-3 font-bold text-sm"
+                  >
+                    Voye mesaj la
+                  </button>
+                </div>
               </form>
             )}
           </div>
+
         </div>
       </div>
     </div>
