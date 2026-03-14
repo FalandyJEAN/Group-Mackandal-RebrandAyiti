@@ -12,9 +12,9 @@ interface Props {
 async function getPhoto(id: string) {
   try {
     const result = await sql`
-      SELECT p.*, u.name as author_display_name
+      SELECT p.*, u.name as author_name
       FROM photos p
-      LEFT JOIN users u ON p.author_id = u.id
+      LEFT JOIN users u ON p.user_id = u.id
       WHERE p.id = ${parseInt(id)}
     `
     return result[0] || null
@@ -73,8 +73,8 @@ export default async function PhotoPage({ params }: Props) {
   })
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Structured data for Google */}
+    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors">
+      {/* JSON-LD pou Google */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -82,41 +82,40 @@ export default async function PhotoPage({ params }: Props) {
             "@context": "https://schema.org",
             "@type": "ImageObject",
             name: photo.title,
-            description: photo.description || `Photo authentique d'Haïti prise à ${photo.location}`,
+            description: photo.description || `Foto otantik Ayiti pran nan ${photo.location}`,
             contentUrl: photo.url,
             author: { "@type": "Person", name: photo.author_name },
-            locationCreated: {
-              "@type": "Place",
-              name: photo.location,
-              addressCountry: "HT",
-            },
+            locationCreated: { "@type": "Place", name: photo.location, addressCountry: "HT" },
             keywords: (photo.tags || []).join(", "),
             datePublished: photo.created_at,
-            publisher: {
-              "@type": "Organization",
-              name: "RebrandAyiti",
-              url: "https://rebrandayiti.org",
-            },
+            publisher: { "@type": "Organization", name: "RebrandAyiti — Group Mackandal" },
           }),
         }}
       />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Bande drapeau */}
+      <div className="flex h-1">
+        <div className="flex-1" style={{ backgroundColor: '#003F87' }} />
+        <div className="flex-1" style={{ backgroundColor: '#D21034' }} />
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 py-10">
+
         {/* Retour */}
         <Link
           href="/gallery"
-          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors mb-6"
+          className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
-          Retour à la galerie
+          Tounen galri a
         </Link>
 
-        {/* Photo principale */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+        {/* Photo */}
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 overflow-hidden mb-8">
           <div className="relative w-full" style={{ paddingBottom: "60%" }}>
             <Image
               src={photo.url}
-              alt={`${photo.title} — Photo authentique d'Haïti prise à ${photo.location}`}
+              alt={`${photo.title} — Foto Ayiti, ${photo.location}`}
               fill
               className="object-cover"
               priority
@@ -124,67 +123,67 @@ export default async function PhotoPage({ params }: Props) {
           </div>
 
           <div className="p-6 md:p-8">
-            {/* Titre + meta */}
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 dark:text-gray-600 mb-3">
+              RebrandAyiti — Group Mackandal
+            </p>
+            <h1 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-5">
               {photo.title}
             </h1>
 
-            <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-blue-500" />
-                <span>{photo.location}, <strong>Haïti</strong></span>
+            <div className="flex flex-wrap gap-5 text-sm text-gray-500 dark:text-gray-400 mb-6 border-t border-b border-gray-100 dark:border-gray-800 py-4">
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-4 h-4" style={{ color: '#003F87' }} />
+                <span>{photo.location}, <strong className="text-gray-700 dark:text-gray-300">Ayiti</strong></span>
               </div>
-              <div className="flex items-center gap-2">
-                <User className="w-4 h-4 text-blue-500" />
-                <span>{photo.author_name}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-blue-500" />
+              {photo.author_name && (
+                <div className="flex items-center gap-1.5">
+                  <User className="w-4 h-4" style={{ color: '#D21034' }} />
+                  <span>{photo.author_name}</span>
+                </div>
+              )}
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-4 h-4 text-gray-400" />
                 <span>{formattedDate}</span>
               </div>
             </div>
 
             {photo.description && (
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
                 {photo.description}
               </p>
             )}
 
-            {/* Tags */}
             {photo.tags?.length > 0 && (
-              <div className="flex flex-wrap gap-2 mb-6">
-                <Tag className="w-4 h-4 text-gray-500 mt-1" />
+              <div className="flex flex-wrap gap-2">
+                <Tag className="w-4 h-4 text-gray-400 mt-0.5" />
                 {photo.tags.map((tag: string) => (
                   <span
                     key={tag}
-                    className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm"
+                    className="border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 text-sm"
                   >
                     #{tag}
                   </span>
                 ))}
               </div>
             )}
-
-            {/* Catégorie */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-red-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-              📍 {photo.location} — Haïti
-            </div>
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-8 bg-gradient-to-r from-blue-600 to-red-600 rounded-2xl p-6 text-white text-center">
-          <h2 className="text-xl font-bold mb-2">Vous aussi, partagez votre Haïti</h2>
-          <p className="text-blue-100 mb-4 text-sm">
-            Chaque photo contribue à changer la perception mondiale d&apos;Haïti sur Google.
-          </p>
-          <Link
-            href="/"
-            className="inline-block bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-          >
-            Rejoindre RebrandAyiti
+        {/* CTA éditorial */}
+        <div className="border border-gray-200 dark:border-gray-800 p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 dark:text-gray-600 mb-1">
+              Ou gen yon foto?
+            </p>
+            <p className="text-xl font-black text-gray-900 dark:text-white">
+              Chak foto se yon vwa pou Ayiti.
+            </p>
+          </div>
+          <Link href="/" className="btn-haiti px-8 py-3 font-bold text-sm whitespace-nowrap">
+            Rejwenn mouvman an
           </Link>
         </div>
+
       </div>
     </div>
   )
