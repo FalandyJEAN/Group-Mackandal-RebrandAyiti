@@ -10,12 +10,12 @@ interface FooterProps {
 
 export default function Footer({ data }: FooterProps) {
   return (
-    <footer className="bg-gray-950 text-white">
-      {/* Bloc manifeste top */}
-      <div className="border-b border-gray-800">
+    <footer className="bg-gray-900 dark:bg-black text-white transition-colors">
+
+      {/* Manifès */}
+      <div className="border-b border-gray-800 dark:border-gray-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-end">
           <div>
-            {/* Logo texte */}
             <div className="flex flex-col mb-6">
               <span className="text-3xl font-black tracking-tight">RebrandAyiti</span>
               <span className="text-xs font-bold tracking-[0.25em] uppercase mt-1" style={{ color: '#D21034' }}>
@@ -38,10 +38,8 @@ export default function Footer({ data }: FooterProps) {
         </div>
       </div>
 
-      {/* Nav links + social */}
+      {/* Nav + réseaux */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-
-        {/* Liens */}
         <nav className="flex flex-wrap gap-6">
           {data.quickLinks.map((link, i) => (
             <Link
@@ -54,7 +52,6 @@ export default function Footer({ data }: FooterProps) {
           ))}
         </nav>
 
-        {/* Social — texte seulement, pas d'icônes génériques */}
         <div className="flex gap-4">
           {data.socialLinks.map((s, i) => (
             <a
@@ -71,7 +68,7 @@ export default function Footer({ data }: FooterProps) {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-gray-900">
+      <div className="border-t border-gray-800 dark:border-gray-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-gray-600 text-xs">
             {data.copyright.replace("{year}", new Date().getFullYear().toString())}

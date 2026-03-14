@@ -13,44 +13,38 @@ export const realData = {
   },
 
   features: {
-    title: "Une plateforme complète",
-    subtitle: "Tous les outils pour valoriser et partager la beauté authentique d'Haïti",
+    title: "Yon platfòm konplè",
+    subtitle: "Tout zouti yo pou valorize ak pataje bèlte otantik Ayiti",
     features: [
       {
         icon: Camera,
-        title: "Upload et partage facile",
-        description:
-          "Partagez vos photos en quelques clics avec géolocalisation automatique et tags intelligents pour une meilleure découvrabilité.",
+        title: "Upload fasil",
+        description: "Pataje foto ou yo an kèk klik ak jeolokalizasyon otomatik ak etikèt entèlijan.",
       },
       {
         icon: Users,
-        title: "Communauté active",
-        description:
-          "Plus de 3,400 contributeurs actifs partagent quotidiennement leurs perspectives uniques d'Haïti à travers le pays.",
+        title: "Kominote aktif",
+        description: "Plis pase 3 400 kontribitè ap pataje pèspektiv inik yo sou Ayiti chak jou.",
       },
       {
         icon: Globe,
-        title: "Impact mondial mesurable",
-        description:
-          "Vos photos sont vues dans 89 pays. Suivez l'impact de vos contributions avec des analytics détaillés.",
+        title: "Enpak mondyal",
+        description: "Foto ou yo wè nan 89 peyi. Swiv enpak kontribisyon ou yo ak analytics detaye.",
       },
       {
         icon: Heart,
-        title: "Modération communautaire",
-        description:
-          "Système de votes et de modération par la communauté pour garantir la qualité et l'authenticité du contenu.",
+        title: "Moderation kominotè",
+        description: "Sistèm vòt ak moderation pa kominote a pou garanti kalite ak otantisitè kontni an.",
       },
       {
         icon: Zap,
-        title: "Recherche intelligente",
-        description:
-          "Trouvez facilement des photos par localisation, tags, auteur ou contenu grâce à notre moteur de recherche avancé.",
+        title: "Rechèch entèlijan",
+        description: "Jwenn foto fasil pa kote, etikèt, otè oswa kontni grasa motè rechèch avanse nou an.",
       },
       {
         icon: Shield,
-        title: "Droits d'auteur protégés",
-        description:
-          "Vos photos restent votre propriété. Licences Creative Commons disponibles pour encourager le partage responsable.",
+        title: "Dwa otè pwoteje",
+        description: "Foto ou yo rete pwopriyete ou. Lisans Creative Commons disponib pou pataje responsab.",
       },
     ],
   },
@@ -64,11 +58,11 @@ export const realData = {
 
   footer: {
     quickLinks: [
-      { label: "Galerie", href: "/gallery" },
-      { label: "Communauté", href: "/community" },
-      { label: "Signaler", href: "/report" },
-      { label: "À propos", href: "/about" },
-      { label: "Contact", href: "/contact" },
+      { label: "Galri",    href: "/gallery" },
+      { label: "Kominote", href: "/community" },
+      { label: "Sinyale",  href: "/report" },
+      { label: "Sou nou",  href: "/about" },
+      { label: "Kontakte", href: "/contact" },
     ],
     socialLinks: [
       { platform: "GitHub", href: "https://github.com/FalandyJEAN/Group-Mackandal-RebrandAyiti" },
